@@ -1,0 +1,24 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: restaurent-management-service
+spec:
+  # basically this serviice is external we should be able to connect this service 
+  type: NodePort
+  # this selector should match with above deployemnt or pod labels
+  selector:
+    app.kubernetes.io/name: restaurent-management-app 
+  ports:
+    - protocol: TCP
+      port: 9000
+      # this service target to port of pod
+      targetPort: 9000
+      # this service will be exposed in this port 
+      nodePort: 30120
+
+
+#first we need to connect deployment to pod(and container) and then deployment or pod  to service
+
+# then if we want to connect two pods we should connect through service
+

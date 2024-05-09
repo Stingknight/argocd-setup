@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment-restaurent-management
+  labels:
+    app: restaurent-management-app
+
+spec:
+  replicas: 1
+  selector:
+  # this thing connects pod to deployment matchlabels should be same in pod labels and depolyment labels
+    matchLabels:
+      app: restaurent-management-app
+  template:
+    metadata:
+      labels:
+        app: restaurent-management-app
+    spec:
+    # this label is optional
+      containers:
+      - name: restaurent-management-container
+        image: adithyaudupa123/restaurent_management:latest
+        # if new image uploads to docker repo it automatically pulls from it
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 9000
+        # this env file overwrites the end field in the image
+        env:
+          - name: MONGODB_DATABASE
+            value: "mongodb+srv://adithya:adhimongodb@practise.ddntdui.mongodb.net/?retryWrites=true&w=majority"
+---
