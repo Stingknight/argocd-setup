@@ -14,7 +14,7 @@ spec:
       # this service target to port of pod
       targetPort: 9000
       # this service will be exposed in this port 
-      nodePort: 30120
+      nodePort: 30121
 
 
 #first we need to connect deployment to pod(and container) and then deployment or pod  to service
