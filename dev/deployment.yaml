@@ -28,5 +28,5 @@ spec:
         # this env file overwrites the end field in the image
         env:
           - name: MONGODB_DATABASE
-            value: "mongodb+srv://adithya:adhimongodb@practise.ddntdui.mongodb.net/?retryWrites=true&w=majority"
+            value: "your database URL"
 ---
